@@ -1,0 +1,6 @@
+// Name/ULID Member #1: Paul Chu, C00124175
+// Name/ULID Member #2: Colin Lanclos, C00414344
+// Course: CMPS 430 - Spring 2023
+// Assignment: Verilog homework #4
+
+// Pattern Matching Controller Design
