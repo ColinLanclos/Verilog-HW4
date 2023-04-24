@@ -4,3 +4,42 @@
 // Assignment: Verilog homework #4
 
 // One-Bit Branch Predictor Design
+module oneBitPerdict(clk,rst,nottaken,taken,Zot);
+  input clk,rst,nottaken,taken;
+  output Zot;
+  reg Zot;
+  
+  parameter state0=0,state1=1;
+  reg state,nxt_st;
+  
+  always@(state or nottaken or taken)
+    begin:
+      case(state)
+        state0:
+          begin 
+            if(nottaken) nxt_st = state1;
+            else nxt_st = state0;
+          end
+        state1:
+          begin
+            if(tattaken) nxt_st = state1;
+            else nxt_st = state0;
+          end
+        default nxt_state = state0;
+      endcase
+    end
+  
+  always @(posedge clk or posedge rst)
+    begin: register_Generation 
+      if(rst) state = state0;
+      else state = nxt_state;
+    end
+  
+  always@(state) begin: output_logic
+    case(state)
+      state0:Zot=2'b00;
+      state1:Zot=2'b01;
+      defualt: Zot = 2'b00;
+    endcase
+  end 
+endmodule
